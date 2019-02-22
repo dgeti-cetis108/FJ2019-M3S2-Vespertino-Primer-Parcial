@@ -1,13 +1,30 @@
+/* Reglas <etiqueta> */
+body {
+    /* margin: 0 160px; 1280-960=320/2=160 no funcionó bien */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* margin: 10px; 10px a todos los lados */
+    /* margin: 5px 10px; 5px top+bottom  10px right+left */
+    /* margin: 5px 10px 8px; 5px top, 10px right+left, 8px bottom */
+    /* margin: 1px 2px 3px 4px; 1top, 2right, 3bottom, 4left */
+}
+
+/* Reglas .clase */
+.contenedor {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/* Reglas #ID */
 #encabezado {
     height: 120px;
     background-color: red;
 }
-
 #principal {
     height: 600px;
     background-color: blue;
 }
-
 #pie {
     height: 50px;
     background-color: green;
