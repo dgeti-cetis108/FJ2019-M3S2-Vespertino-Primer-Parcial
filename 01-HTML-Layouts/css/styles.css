@@ -1,0 +1,14 @@
+#encabezado {
+    height: 120px;
+    background-color: red;
+}
+
+#principal {
+    height: 600px;
+    background-color: blue;
+}
+
+#pie {
+    height: 50px;
+    background-color: green;
+}
