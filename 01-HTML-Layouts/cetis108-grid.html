@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CETis108 - CSS Grid</title>
     <style>
         body {
@@ -13,29 +14,57 @@
             grid-template-rows: 150px 50px 1fr 100px;
             grid-template-columns: 330px 330px 300px;
             justify-content: center;
+            grid-template-areas: "encabezado encabezado encabezado"
+                                 "navegacion navegacion navegacion"
+                                 "contenido contenido banners"
+                                 "pie pie pie";
         }
         #encabezado {
             background-color: lightblue;
-            grid-column-start: 1;
-            grid-column-end: 4;
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            /* grid-column: 1 / 4; */
+            grid-area: encabezado;
         }
         #navbar {
             background-color: mediumslateblue;
-            grid-column-start: 1;
-            grid-column-end: 4;
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            /* grid-column: 1 / -1; */
+            grid-area: navegacion;
         }
         #principal {
             background-color: aquamarine;
-            grid-column-start: 1;
-            grid-column-end: 3;
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+            /* grid-column: 1 / span 2; */
+            grid-area: contenido;
         }
         #banners {
             background-color: coral;
+            grid-area: banners;
         }
         #pie {
             background-color: lemonchiffon;
-            grid-column-start: 1;
-            grid-column-end: 4;
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            /* grid-column: 1 / -1; */
+            grid-area: pie;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width:768px) {
+            #pagina {
+                grid-template-rows: 200px repeat(2, 1fr) 100px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "encabezado"
+                                     "contenido"
+                                     "banners"
+                                     "pie";
+            }
+            #navbar {
+                display: none;
+            }
         }
     </style>
 </head>
