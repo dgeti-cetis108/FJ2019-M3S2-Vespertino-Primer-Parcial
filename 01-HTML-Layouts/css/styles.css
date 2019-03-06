@@ -1,31 +1,72 @@
-/* Reglas <etiqueta> */
 body {
-    /* margin: 0 160px; 1280-960=320/2=160 no funcionó bien */
     margin: 0;
-    padding: 0;
-    border: 0;
-    /* margin: 10px; 10px a todos los lados */
-    /* margin: 5px 10px; 5px top+bottom  10px right+left */
-    /* margin: 5px 10px 8px; 5px top, 10px right+left, 8px bottom */
-    /* margin: 1px 2px 3px 4px; 1top, 2right, 3bottom, 4left */
 }
-
-/* Reglas .clase */
-.contenedor {
-    width: 960px;
-    margin: 0 auto;
+#pagina {
+    display: grid;
+    height: 100vh; /* vh=viewport height */
+    grid-template-rows: 150px 50px 1fr 100px;
+    grid-template-columns: 330px 330px 300px;
+    justify-content: center;
+    grid-template-areas: "encabezado encabezado encabezado"
+                         "navegacion navegacion navegacion"
+                         "contenido contenido banners"
+                         "pie pie pie";
 }
-
-/* Reglas #ID */
 #encabezado {
-    height: 120px;
-    background-color: red;
+    background-color: lightblue;
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    /* grid-column: 1 / 4; */
+    grid-area: encabezado;
+    display: grid;
+    grid-template-columns: 200px 1fr repeat(2, 100px);
+    grid-template-rows: 100px 50px;
+}
+#navbar {
+    background-color: mediumslateblue;
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    /* grid-column: 1 / -1; */
+    grid-area: navegacion;
 }
 #principal {
-    height: 600px;
-    background-color: blue;
+    background-color: aquamarine;
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    /* grid-column: 1 / span 2; */
+    grid-area: contenido;
+}
+#banners {
+    background-color: coral;
+    grid-area: banners;
 }
 #pie {
-    height: 50px;
-    background-color: green;
+    background-color: lemonchiffon;
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+    /* grid-column: 1 / -1; */
+    grid-area: pie;
+}
+
+/* Media Queries */
+@media screen and (max-width:768px) {
+    #pagina {
+        grid-template-rows: 200px repeat(2, 1fr) 100px;
+        grid-template-columns: 1fr;
+        grid-template-areas: "encabezado"
+                             "contenido"
+                             "banners"
+                             "pie";
+    }
+    #navbar {
+        display: none;
+    }
+}
+
+.logo-sep, .titulos {
+    grid-row: span 2;
+}
+
+.form-busqueda {
+    grid-column: span 2;
 }
