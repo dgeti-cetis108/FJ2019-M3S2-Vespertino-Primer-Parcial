@@ -1,6 +1,26 @@
+/* Reglas tipo etiqueta */
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Reset Heading */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+}
+
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.9em; }
+h6 { font-size: 0.8em; }
+
+
+/* Reglas tipo ID y class */
 #pagina {
     display: grid;
     height: 100vh; /* vh=viewport height */
@@ -51,7 +71,7 @@ body {
 /* Media Queries */
 @media screen and (max-width:768px) {
     #pagina {
-        grid-template-rows: 200px repeat(2, 1fr) 100px;
+        grid-template-rows: repeat(4, 1fr);
         grid-template-columns: 1fr;
         grid-template-areas: "encabezado"
                              "contenido"
@@ -59,6 +79,17 @@ body {
                              "pie";
     }
     #navbar {
+        display: none;
+    }
+    .logo-sems, .logo-uemstis, .form-busqueda {
+        display: none;
+    }
+    #encabezado {
+        grid-template-rows: 100px 1fr;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .titulos>h2, .titulos>h3, .titulos>h4, .titulos>h5 {
         display: none;
     }
 }
@@ -69,4 +100,27 @@ body {
 
 .form-busqueda {
     grid-column: span 2;
+    align-self: center; /* centrar verticalmente elementos dentro del grid */
+}
+
+.form-control {
+    display: flex;
+}
+
+.form-busqueda>.form-control>input {
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.form-busqueda>.form-control>button {
+    width: 20%;
+    padding: 0 2px;
+    font-size: 0.6em;
+}
+
+.form-busqueda>.form-control>input,
+.form-busqueda>.form-control>button {
+    border: 1px solid gray;
+    border-radius: 0;
+    height: 30px;
 }
